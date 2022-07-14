@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float jumpspeed;
     private Rigidbody2D body;
     private Animator anim;
     private bool grounded;
@@ -33,12 +34,11 @@ public class PlayerMovement : MonoBehaviour
         //set animator Hinweis: name in klammern muss genau so geschrieben sein wie in animation window
         anim.SetBool("run", horizontalInput != 0);
         anim.SetBool("grounded", grounded);
-
     }
 
     private void Jump()
     {
-        body.velocity = new Vector2(body.velocity.x, speed);
+        body.velocity = new Vector2(body.velocity.x,jumpspeed);
         anim.SetTrigger("jump");
         grounded = false;
     }
