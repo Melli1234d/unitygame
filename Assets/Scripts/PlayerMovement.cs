@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
+    private float horizontalInput;
 
     private void Awake()
     {
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
         
         //Richtungswechsel links/rechts vom spieler
         if (horizontalInput > 0.05f)
@@ -62,8 +63,16 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (onWall() && !isGrounded())
         {
+            if(horizontalInput == 0)
+            {
+                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10, 0); //- weil der spieler weg von der wand gedrückt werden soll
+                transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            }
+            else
+                body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 3, 6); //- weil der spieler weg von der wand gedrückt werden soll
+
             wallJumpCooldown = 0;
-            body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 3, 6); //- weil der spieler weg von der wand gedrückt werden soll
+            
         }  
     }
 
