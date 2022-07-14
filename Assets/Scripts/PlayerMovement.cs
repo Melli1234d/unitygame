@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        
+
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -24,8 +24,8 @@ public class PlayerMovement : MonoBehaviour
         //Richtungswechsel links/rechts vom spieler
         if (horizontalInput > 0.05f)
             transform.localScale = new Vector2(5, 5);
-        else if(horizontalInput < -0.05f)
-            transform.localScale = new Vector2(-5,5);
+        else if (horizontalInput < -0.05f)
+            transform.localScale = new Vector2(-5, 5);
 
         if (Input.GetKey(KeyCode.Space) && grounded)
             Jump();
