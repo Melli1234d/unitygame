@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/UnityGame.cs" />
     <Compile Include="Assets/Scripts/PlayerMovement.cs" />
+    <Compile Include="Assets/Scripts/CameraController.cs" />
+    <Compile Include="Assets/Scripts/Door.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/Cave Platformer Tileset/readme.txt" />
