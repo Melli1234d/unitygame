@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
             if(horizontalInput == 0)
             {
                 body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10, 0); //- weil der spieler weg von der wand gedrückt werden soll
-                transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                transform.localScale = new Vector2(-Mathf.Sign(transform.localScale.x), transform.localScale.y);
             }
             else
                 body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 3, 6); //- weil der spieler weg von der wand gedrückt werden soll
